@@ -157,29 +157,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="DAL\Author.cs">
-      <DependentUpon>BookDatabaseFirstContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Book.cs">
-      <DependentUpon>BookDatabaseFirstContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="DAL\BookContext.cs" />
-    <Compile Include="DAL\BookDatabaseFirstContext.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookDatabaseFirstContext.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\BookDatabaseFirstContext.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookDatabaseFirstContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\BookDatabaseFirstContext.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookDatabaseFirstContext.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="DAL\BookInitializer.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Person.cs" />
@@ -193,16 +174,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="DAL\BookDatabaseFirstContext.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BookDatabaseFirstContext.edmx</DependentUpon>
-      <LastGenOutput>BookDatabaseFirstContext.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DAL\BookDatabaseFirstContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BookDatabaseFirstContext.edmx</DependentUpon>
-      <LastGenOutput>BookDatabaseFirstContext.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -218,13 +189,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="DAL\BookDatabaseFirstContext.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BookDatabaseFirstContext.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DAL\BookDatabaseFirstContext.edmx.diagram">
-      <DependentUpon>BookDatabaseFirstContext.edmx</DependentUpon>
-    </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -261,6 +226,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Basic.cshtml" />
     <Content Include="Views\Home\Advanced.cshtml" />
+    <Content Include="Views\Authors\Create.cshtml" />
+    <Content Include="Views\Authors\Delete.cshtml" />
+    <Content Include="Views\Authors\Details.cshtml" />
+    <Content Include="Views\Authors\Edit.cshtml" />
+    <Content Include="Views\Authors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

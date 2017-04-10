@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using BootstrapIntroduction.DAL;
+using System.Data.Entity;
 
 namespace BootstrapIntroduction
 {
@@ -16,6 +18,10 @@ namespace BootstrapIntroduction
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            var bookContext = new BookContext();
+            Database.SetInitializer(new BookInitializer());
+            bookContext.Database.Initialize(true);
         }
     }
 }
