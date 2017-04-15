@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
-
+using BootstrapIntroduction.Models;
 namespace BootstrapIntroduction.DAL
 {
     public class BookInitializer : DropCreateDatabaseIfModelChanges<BookContext>
@@ -53,5 +53,4 @@ namespace BootstrapIntroduction.DAL
             context.SaveChanges();
         }
     }
-}
 }

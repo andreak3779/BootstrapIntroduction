@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using BootstrapIntroduction.DAL;
+using BootstrapIntroduction.Models;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Net;
-using System.Web;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
-using BootstrapIntroduction.DAL;
-using BootstrapIntroduction.Models;
 
 namespace BootstrapIntroduction.Controllers
 {
@@ -16,10 +14,16 @@ namespace BootstrapIntroduction.Controllers
         private BookContext db = new BookContext();
 
         // GET: Authors
-        public ActionResult Index()
+        public ActionResult Index([Form] QueryOptions queryOptions)
         {
-            return View(db.Authors.ToList());
+            var authors = db.Authors.OrderBy(queryOptions.Sort);
+
+            ViewBag.QueryOptions = queryOptions;
+
+            return View(authors.ToList());
         }
+        
+
 
         // GET: Authors/Details/5
         public ActionResult Details(int? id)
