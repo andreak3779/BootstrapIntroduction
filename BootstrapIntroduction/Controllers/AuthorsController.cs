@@ -33,7 +33,7 @@ namespace BootstrapIntroduction.Controllers
 
             return View(authors.ToList());
         }
-        
+
         // GET: Authors/Details/5
         public ActionResult Details(int? id)
         {
@@ -52,7 +52,22 @@ namespace BootstrapIntroduction.Controllers
         // GET: Authors/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Form", new Author());
+        }
+
+        //Get: Author/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Author author = db.Authors.Find(id);
+            if (author == null)
+            {
+                return HttpNotFound();
+            }
+            return View("Form", author);
         }
 
         // POST: Authors/Create
@@ -72,20 +87,7 @@ namespace BootstrapIntroduction.Controllers
             return View(author);
         }
 
-        // GET: Authors/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Author author = db.Authors.Find(id);
-            if (author == null)
-            {
-                return HttpNotFound();
-            }
-            return View(author);
-        }
+
 
         // POST: Authors/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
