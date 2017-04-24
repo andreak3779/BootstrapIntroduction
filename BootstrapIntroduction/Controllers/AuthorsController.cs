@@ -84,7 +84,7 @@ namespace BootstrapIntroduction.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(author);
+            return View("Form", author);
         }
 
 
@@ -102,7 +102,7 @@ namespace BootstrapIntroduction.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(author);
+            return View("Form", author);
         }
 
         // GET: Authors/Delete/5

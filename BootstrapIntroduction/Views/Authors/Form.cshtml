@@ -10,8 +10,8 @@
     <h2>@ViewBag.Title</h2>
 
     @using (Html.BeginForm("Create", "Authors", FormMethod.Post,
-            new { data_bind = "submit: validateAndSave" }
-            ))
+                    new { data_bind = "submit: validateAndSave" }
+                    ))
     {
         @Html.AntiForgeryToken()
         <div class="form-horizontal">
@@ -22,16 +22,16 @@
                 @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.FirstName, new
-               {
-                   htmlAttributes =
-             new
-             {
-                 @class = "form-control",
-                 data_bind = "value: author.firstName"
-             }
-               })
+                    {
+                    htmlAttributes =
+                        new
+                        {
+                            @class = "form-control",
+                            data_bind = "value: author.firstName"
+                        }
+                    })
                     @Html.ValidationMessageFor(model => model.FirstName, "",
-         new { @class = "text-danger" })
+                    new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -48,16 +48,19 @@
 
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Biography, new
-               {
-                   htmlAttributes = new { @class = "form-control", data_bind = "value: author.biography" }
-               })
+                   {
+                       htmlAttributes = new { @class = "form-control", data_bind = "value: author.biography" }
+                   })
                     @Html.ValidationMessageFor(model => model.Biography, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10" data-bind="visible: !sending()">
                     <input type="submit" value="@if (isCreating) {
-                        @Html.Raw("Create") } else { @Html.Raw("Update") }" class="btn btn-default" />
+                        @Html.Raw("Create") }
+                    else
+                        { @Html.Raw("Update") }" 
+                    class="btn btn-default" />
                 </div>
                 <div class="progress" data-bind:visible: sending">
                     <div class="progress-bar progress-bar-info progress-bar-striped active"
@@ -81,8 +84,7 @@
     @Scripts.Render("~/bundles/jqueryval",
     "/Scripts/ViewModels/AuthorFormViewModel.js")
     <script>
-        var viewModel = new AuthorFormViewModel(
-            @Html.HtmlConvertToJson(Model));
+        var viewModel = new AuthorFormViewModel(@Html.HtmlConvertToJson(Model));
         ko.applyBindings(viewModel);
     </script>
 }

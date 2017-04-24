@@ -1,5 +1,19 @@
-﻿function AuthorFormViewModel(author) {
+﻿
+function AuthorFormViewModel(author) {
     var self = this;
+
+    self.showDeleteModal = function (data, event) {
+        self.sending = ko.observable(false);
+        $.get($(event.target).attr('href'), function (d) {
+            $('.body-content').prepend(d);
+            $('#deleteModel').modal('show');
+            ko.applyBindings(self, document.getElementById('deleteModal'));
+        });
+    };
+    self.deleteAuthor = function (form) {
+        self.sending(true);
+        return true;
+    };
 
     self.saveCompleted = ko.observable(false);
     self.sending = ko.observable(false);
@@ -8,9 +22,9 @@
 
     self.author = {
         id: author.id,
-        firstName: ko.observable(),
-        lastName: ko.observable(),
-        biography: ko.observable()
+        firstName: ko.observable(author.firstName),
+        lastName: ko.observable( author.lastName),
+        biography: ko.observable( author.biography)
     };
 
     self.validateAndSave = function (form) {
@@ -29,7 +43,7 @@
         })
         .success(self.successfulSave)
         .error(self.errorSave)
-        .complete(function () { self.sending(false); });
+        .complete(function () { self.sending(false) });
     };
 
     self.successfulSave = function () {
