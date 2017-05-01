@@ -34,7 +34,7 @@ namespace BootstrapIntroduction.Controllers
 
         public ActionResult Advanced()
         {
-            var person = new Person
+            var person = new ViewModels.Person
             {
                 FirstName = "Andrea",
                 LastName = "Kaplen"

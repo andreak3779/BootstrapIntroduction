@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BootstrapIntroduction.Models
+namespace BootstrapIntroduction.ViewModels
 {
     public class QueryOptions
     {

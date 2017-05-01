@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web;
 using BootstrapIntroduction.Models;
+using BootstrapIntroduction.ViewModels;
 
 public static class HTMLHelperExtension
 {

@@ -1,4 +1,4 @@
-﻿namespace BootstrapIntroduction.Controllers
+﻿namespace BootstrapIntroduction.ViewModels
 {
     internal class Person
     {
